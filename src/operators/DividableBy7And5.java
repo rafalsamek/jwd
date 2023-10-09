@@ -1,6 +1,6 @@
 package operators;
 
-public class Modulo7And5 {
+public class DividableBy7And5 {
 
     public static void main(String[] args) {
         int number = 435;
