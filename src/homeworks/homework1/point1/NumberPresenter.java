@@ -1,4 +1,4 @@
-package homeworks.homework1;
+package homeworks.homework1.point1;
 
 public class NumberPresenter {
 

@@ -1,4 +1,4 @@
-package homeworks.homework1;
+package homeworks.homework1.point2;
 
 public class Calculator {
     public static void main(String[] args) {
