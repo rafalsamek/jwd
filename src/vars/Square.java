@@ -7,7 +7,7 @@ public class Square {
         this.side = side;
     }
 
-    private double calculateCircut() {
+    private double calculateCircuit() {
         return 4 * side;
     }
 
@@ -21,7 +21,7 @@ public class Square {
 
     public void printDetails() {
         System.out.println("Kwadrat o boku: " + side);
-        System.out.println("Obwód: " + this.calculateCircut());
+        System.out.println("Obwód: " + this.calculateCircuit());
         System.out.println("Pole: " + this.calculateField());
         System.out.println("Przekątna: " + this.calculateDiagonal());
     }
