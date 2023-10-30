@@ -3,7 +3,7 @@ package homeworks.homework1.point4;
 import homeworks.homework1.point4.operations.Operation;
 
 public class IntOperationPresenter {
-    private Operation operation;
+    private final Operation operation;
 
     public IntOperationPresenter(Operation operation) {
         this.operation = operation;
