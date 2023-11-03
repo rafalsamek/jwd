@@ -38,8 +38,8 @@ public class Demo {
 
         double x = 12e22; //12 * 10^22
         double xx = 12E22; //12 * 10^22
-        double y = 19e-95; //19 * 10^-19
-        double yy = 19E-95; //19 * 10^-19
+        double y = 19e-95; //19 * 10^-95
+        double yy = 19E-95; //19 * 10^-95
 
         //notacja naukowa (wykłądnicza)
         double z = 3E-3; //3 * 10 ^ -3 = 0.003
@@ -50,9 +50,9 @@ public class Demo {
 
         System.out.println(p);
         System.out.printf("%.23f", p);
-        System.out.println("\n");
+        System.out.println();
         System.out.printf(new Locale("US"), "%.23f", p);
-        System.out.println("\n");
+        System.out.println();
 
         double q = 3E-10;
 
