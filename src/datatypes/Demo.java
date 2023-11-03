@@ -16,7 +16,7 @@ public class Demo {
         int i = 1_123_456_789;
 
         long ll = 123234234234234L;
-        long l = i * b;
+        long l = (long) i * b;
 
 
         // liczby zmiennoprzecinkowe
