@@ -1,4 +1,4 @@
-package oop;
+package general;
 
 public class HelloWorld {
     public static void main(String[] args) {
