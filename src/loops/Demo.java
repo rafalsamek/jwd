@@ -38,5 +38,19 @@ public class Demo {
             System.out.println("a jest równe zero");
         }
 
+        // operator trójargumentowy
+        int myScore = 34;
+        int yourScore = 44;
+        int ourBestScore = myScore > yourScore ? myScore : yourScore;
+
+        System.out.println("Najlepszy wynik to: " + ourBestScore);
+
+        if (myScore > yourScore) {
+            ourBestScore = myScore;
+        } else {
+            ourBestScore = yourScore;
+        }
+        System.out.println("Najlepszy wynik to: " + ourBestScore);
+
     } //koniec bloku
 }
