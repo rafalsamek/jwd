@@ -45,6 +45,7 @@ public class Demo {
 
         bbb = aaa-- + aaa++;
         System.out.println(bbb);
+        System.out.println(aaa);
 
         int xxx, yyy, zzz;
         xxx = yyy = zzz = 7;
