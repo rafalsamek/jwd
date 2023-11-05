@@ -16,7 +16,7 @@ public class MostFrequent {
         short mostFrequentDigit = -1;
         for (int i = 0; i < 10; i++) {
             if (digits[i] > mostFrequent) {
-                mostFrequent =digits[i];
+                mostFrequent = digits[i];
                 mostFrequentDigit = (short) i;
             }
         }
