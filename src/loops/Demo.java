@@ -68,5 +68,21 @@ public class Demo {
             i++;
         } while (i <= 100);
 
+        // wypisz cyfry parzyste
+        for (int j = 0; j < 10; j++) {
+            if (j % 2 != 0) {
+                continue;
+            }
+            System.out.print(j);
+            System.out.print(" ");
+        }
+
+        out: for (i = 0; i < 10; i++) {
+            for (int j = 0; j < 50; j++) {
+                System.out.println(i + j);
+                break out;
+            }
+        }
+
     } //koniec bloku
 }
