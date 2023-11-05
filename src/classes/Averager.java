@@ -9,8 +9,7 @@ class Averager {
                 sum += Integer.parseInt(arguments[i]);
             }
             System.out.println("Suma wynosi: " + sum);
-            System.out.println("Średnia wynosi: " +
-                    (float) sum / arguments.length);
+            System.out.println("Średnia wynosi: " + (double) sum / arguments.length);
         }
     }
 }
