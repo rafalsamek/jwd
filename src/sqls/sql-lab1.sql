@@ -4,7 +4,7 @@ SELECT * FROM Sales.SalesOrderHeader;
 --3 wybrane kolumny tabeli [SalesOrderHeader] posortowanie wg kolumny ModifiedDate malej¹co
 SELECT SalesOrderId, RevisionNumber, OrderDate FROM Sales.SalesOrderHeader;
 --3 kolumny tabeli [Person].[Contact], posortowane wg LastName malej¹co i FirstName rosn¹co
-SELECT ContactID, LastName, FirstName FROM Person.Contact ORDER BY LastName, FirstName DESC;
+SELECT ContactID, LastName, FirstName FROM Person.Contact ORDER BY LastName DESC, FirstName ASC;
 --wszystkie wiersze z tabeli Person.Contact zawieraj¹ce ‘Michael’ w kolumnie FirstName, posortowane wg kolumny Lastname
 SELECT * FROM Person.Contact WHERE FirstName LIKE '%Michael%' ORDER BY LastName;
 --wszystkie dane kontaktowe (tabela Person.Contact) osób o innym imieniu ni¿ ‘Michael’ i nazwisku zaczynaj¹cym siê na Ac (zapytanie zwróci 4 wiersze)
