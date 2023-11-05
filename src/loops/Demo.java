@@ -52,5 +52,21 @@ public class Demo {
         }
         System.out.println("Najlepszy wynik to: " + ourBestScore);
 
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("i=" + i);
+        }
+
+        int i = 0;
+        while (i <= 100) {
+            System.out.println("i = " + i);
+            i++;
+        }
+
+        i = 0;
+        do {
+            System.out.println("i = " + i);
+            i++;
+        } while (i <= 100);
+
     } //koniec bloku
 }
