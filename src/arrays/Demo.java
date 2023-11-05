@@ -32,6 +32,20 @@ public class Demo {
         char[] letters = {'a', 'b', 'c'};
         System.out.println(letters[0]);
 
+        Point[] points2 = {new Point(1, 1), new Point(0, 0), new Point(7, 4)};
+        String[] titles = {"Pan", "Pani", "Państwo", "Panna", "Doktor"};
 
+        Point point = new Point(1, 1);
+        Point[] ppoints = new Point[3];
+
+        ppoints[0] = point;
+        ppoints[1] = ppoints[0]; // new Point(1, 1);
+        ppoints[2] = ppoints[1]; // new Point(1, 1);
+
+        ppoints[1].x = 50;
+
+        System.out.println(ppoints[0]); // 50, 1
+        System.out.println(ppoints[1]); // 50, 1
+        System.out.println(ppoints[2]); // 50, 1
     }
 }
