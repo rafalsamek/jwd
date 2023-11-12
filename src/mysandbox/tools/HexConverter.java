@@ -1,4 +1,4 @@
-package tools;
+package mysandbox.tools;
 
 public class HexConverter {
     public static int hexToDecimal(String hex) throws IllegalStateException {

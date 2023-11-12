@@ -1,4 +1,4 @@
-package tools;
+package mysandbox.tools;
 
 public class ColorConverter {
     public static void main(String[] args) {
