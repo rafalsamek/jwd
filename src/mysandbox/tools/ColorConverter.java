@@ -12,9 +12,9 @@ public class ColorConverter {
         System.out.println("blue: " + rgb[2]);
 
         String hex = ColorConverter.colorRgbToHex(
-            rgb[0],
-            rgb[1],
-            rgb[2]
+                rgb[0],
+                rgb[1],
+                rgb[2]
         );
 
         System.out.println("After conversion rgb to hex: ");
@@ -32,9 +32,9 @@ public class ColorConverter {
 
     public static String colorRgbToHex(int red, int green, int blue) {
         String hex = "#";
-        hex += HexConverter.decimalToHex(red);
-        hex += HexConverter.decimalToHex(green);
-        hex += HexConverter.decimalToHex(blue);
+        hex += String.format("%02x", red);
+        hex += String.format("%02x", green);
+        hex += String.format("%02x", blue);
 
         return hex;
     }
