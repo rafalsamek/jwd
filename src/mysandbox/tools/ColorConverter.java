@@ -12,9 +12,9 @@ public class ColorConverter {
         System.out.println("blue: " + rgb[2]);
 
         String hex = ColorConverter.colorRgbToHex(
-                rgb[0],
-                rgb[1],
-                rgb[2]
+            rgb[0],
+            rgb[1],
+            rgb[2]
         );
 
         System.out.println("After conversion rgb to hex: ");
