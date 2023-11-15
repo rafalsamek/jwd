@@ -37,4 +37,8 @@ public class HexConverter {
     public static String decimalToHex(int decimal, int trailingZeros) {
         return String.format("%0" + trailingZeros + "x", decimal);
     }
+
+    public static String decimalToHex(int decimal) {
+        return HexConverter.decimalToHex(decimal, 2);
+    }
 }
