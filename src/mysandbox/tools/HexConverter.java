@@ -17,12 +17,12 @@ public class HexConverter {
                 case '7' -> 7;
                 case '8' -> 8;
                 case '9' -> 9;
-                case 'a' -> 10;
-                case 'b' -> 11;
-                case 'c' -> 12;
-                case 'd' -> 13;
-                case 'e' -> 14;
-                case 'f' -> 15;
+                case 'a', 'A' -> 10;
+                case 'b', 'B' -> 11;
+                case 'c', 'C' -> 12;
+                case 'd', 'D' -> 13;
+                case 'e', 'E' -> 14;
+                case 'f', 'F' -> 15;
                 default -> throw new IllegalStateException("Unexpected value: " + hex.charAt(i));
             };
             sum += digit * Math.pow(16, w);
@@ -34,7 +34,7 @@ public class HexConverter {
         return Integer.parseInt(hex, 16);
     }
 
-    public static String decimalToHex(int decimal) {
-        return Integer.toHexString(decimal);
+    public static String decimalToHex(int decimal, int trailingZeros) {
+        return String.format("%0" + trailingZeros + "x", decimal);
     }
 }
