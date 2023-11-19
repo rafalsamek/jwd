@@ -24,6 +24,7 @@ public class AnyToDecimalConverter {
             System.out.print("Number: ");
             Scanner input2 = new Scanner(System.in);
             String number = input2.nextLine();
+
             int decimal;
             try {
                 decimal = AnyToDecimalConverter.convert(number, numberSystem);
