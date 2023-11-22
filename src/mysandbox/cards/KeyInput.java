@@ -9,7 +9,7 @@ import static java.lang.Thread.sleep;
 public class KeyInput implements KeyListener {
     private JFrame frame;
     private boolean wait = true;
-    private int waitCode = KeyEvent.VK_SPACE;
+    private int waitUntilCode = KeyEvent.VK_SPACE;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -19,7 +19,7 @@ public class KeyInput implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         this.exitOnCtrlC(e);
-        this.setWaitToTrueOnWaitCode(e);
+        this.setWaitToTrueOnWaitUntilCode(e);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class KeyInput implements KeyListener {
     }
 
     public void waitUntilKeyPressed(int keyCode) throws InterruptedException {
-        this.waitCode = keyCode;
+        this.waitUntilCode = keyCode;
         while (this.wait) {
             sleep(100);
         }
@@ -46,7 +46,7 @@ public class KeyInput implements KeyListener {
     }
 
     public void waitUntilKeyPressed() throws InterruptedException {
-        this.waitUntilKeyPressed(this.waitCode);
+        this.waitUntilKeyPressed(this.waitUntilCode);
     }
 
     private void exitOnCtrlC(KeyEvent e) {
@@ -55,8 +55,8 @@ public class KeyInput implements KeyListener {
         }
     }
 
-    private void setWaitToTrueOnWaitCode(KeyEvent e) {
-        if (e.getKeyCode() == this.waitCode) {
+    private void setWaitToTrueOnWaitUntilCode(KeyEvent e) {
+        if (e.getKeyCode() == this.waitUntilCode) {
             this.wait = false;
         }
     }
