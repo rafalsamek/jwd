@@ -7,6 +7,8 @@ import mysandbox.cards.persons.Dealer;
 import mysandbox.cards.persons.Player;
 import mysandbox.cards.tools.KeyInput;
 
+import java.awt.event.KeyEvent;
+
 public class CardsApplication {
     public static void main(String[] args) throws InterruptedException {
         KeyInput keyInput = new KeyInput();

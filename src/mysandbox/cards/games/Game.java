@@ -12,4 +12,6 @@ public interface Game {
     Player[] getPlayers();
 
     void dealCards();
+
+    boolean isFinished();
 }

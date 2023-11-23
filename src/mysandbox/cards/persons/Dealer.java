@@ -8,6 +8,10 @@ import java.util.Random;
 public class Dealer {
     private Game game;
 
+    public Game getGame() {
+        return this.game;
+    }
+
     public void startGame(Game game) {
         this.game = game;
     }

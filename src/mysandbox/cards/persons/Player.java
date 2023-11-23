@@ -14,6 +14,10 @@ public class Player {
         return this.cards;
     }
 
+    public void setCards(PlayingCard[] cards) {
+        this.cards = cards;
+    }
+
     public PlayingCard[] addCard(PlayingCard card) {
         int lastIndex = this.cards.length;
         PlayingCard[] cards = new PlayingCard[lastIndex + 1];
