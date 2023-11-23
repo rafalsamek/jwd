@@ -1,4 +1,4 @@
-package mysandbox.cards;
+package mysandbox.cards.tools;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
