@@ -29,4 +29,9 @@ public class Joker implements PlayingCard {
     public String toString() {
         return this.color + this.JUNCTION + this.figure;
     }
+
+    @Override
+    public int getSeniority() {
+        return 15;
+    }
 }

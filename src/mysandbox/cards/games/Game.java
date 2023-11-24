@@ -14,4 +14,12 @@ public interface Game {
     void dealCards();
 
     boolean isFinished();
+
+    Player getWinner();
+
+    void playTrick();
+
+    void showTrick();
+
+    void showTable();
 }

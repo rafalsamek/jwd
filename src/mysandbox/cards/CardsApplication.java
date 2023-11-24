@@ -1,6 +1,9 @@
 package mysandbox.cards;
 
 import mysandbox.cards.decks.Deck;
+import mysandbox.cards.decks.DeckOf24Cards;
+import mysandbox.cards.decks.DeckOf4Cards;
+import mysandbox.cards.decks.DeckOf55Cards;
 import mysandbox.cards.games.Game;
 import mysandbox.cards.games.War;
 import mysandbox.cards.persons.Dealer;
@@ -18,13 +21,12 @@ public class CardsApplication {
 
         Dealer dealer = new Dealer();
 
-        Deck deck1 = new Deck();
-        Deck deck2 = new Deck();
-
         Game game = new War(
             new Deck[] {
-                deck1,
-                deck2
+//                new DeckOf55Cards(),
+//                new DeckOf55Cards(),
+//                new DeckOf24Cards(),
+                new DeckOf4Cards(),
             },
             new Player[] {
                 player1,
@@ -33,16 +35,22 @@ public class CardsApplication {
         );
 
         dealer.startGame(game);
-        dealer.shuffleCards();
+        Dealer.shuffleCards(dealer.getGame().getCards());
         dealer.dealCards();
         dealer.showPlayersInfo();
 
-//        while (!dealer.getGame().isFinished()) {
-//            dealer.getGame().playTrick();
-//            dealer.getGame().showTrick();
-//            keyInput.waitUntilKeyPressed(KeyEvent.VK_SPACE);
-//        }
-//        dealer.showWinner();
+        System.out.println("Press space bar to continue...");
+        keyInput.waitUntilKeyPressed(KeyEvent.VK_SPACE);
+
+        while (!dealer.getGame().isFinished()) {
+            dealer.getGame().playTrick();
+            dealer.getGame().showTrick();
+            dealer.showPlayersInfo();
+
+            System.out.println("Press space bar to continue...");
+            keyInput.waitUntilKeyPressed(KeyEvent.VK_SPACE);
+        }
+        dealer.showWinner();
         keyInput.getFrame().dispose();
     }
 }

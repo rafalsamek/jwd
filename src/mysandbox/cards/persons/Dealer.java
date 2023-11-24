@@ -16,13 +16,13 @@ public class Dealer {
         this.game = game;
     }
 
-    public void shuffleCards() {
+    public static void shuffleCards(PlayingCard[] cards) {
         Random rand = new Random();
-        for (int i = 0; i < this.game.getCards().length; i++) {
-            int randomIndexToSwap = rand.nextInt(this.game.getCards().length);
-            PlayingCard temp = this.game.getCards()[randomIndexToSwap];
-            this.game.getCards()[randomIndexToSwap] = this.game.getCards()[i];
-            this.game.getCards()[i] = temp;
+        for (int i = 0; i < cards.length; i++) {
+            int randomIndexToSwap = rand.nextInt(cards.length);
+            PlayingCard temp = cards[randomIndexToSwap];
+            cards[randomIndexToSwap] = cards[i];
+            cards[i] = temp;
         }
     }
 
@@ -40,5 +40,10 @@ public class Dealer {
         for (Player player : this.game.getPlayers()) {
             System.out.println(player);
         }
+    }
+
+    public void showWinner() {
+        System.out.println();
+        System.out.println(this.game.getWinner().getName() + " wins!");
     }
 }
