@@ -1,8 +1,6 @@
 package mysandbox.cards.games;
 
-import mysandbox.cards.decks.Deck;
-import mysandbox.cards.decks.DeckOf55Cards;
-import mysandbox.cards.decks.PlayingCard;
+import mysandbox.cards.decks.*;
 import mysandbox.cards.persons.Dealer;
 import mysandbox.cards.persons.Player;
 
@@ -11,7 +9,7 @@ import java.util.Arrays;
 public class War implements Game {
     private Player[] players;
     private PlayingCard[] cards;
-    private PlayingCard[] table;
+    private PlayingCard[] table = new PlayingCard[0];
     private Player trickWinner;
 
     public War(Deck[] decks, Player[] players) {
@@ -82,17 +80,41 @@ public class War implements Game {
     @Override
     public void playTrick() {
         PlayingCard mostSeniorCard = null;
-        this.trickWinner = this.getPlayers()[0];
-        this.table = new PlayingCard[this.getPlayers().length];
-        int i = 0;
+        this.trickWinner = null;
+
+        int i = this.table.length;
+
+        PlayingCard[] table = new PlayingCard[this.table.length + this.getPlayers().length];
+        System.arraycopy(this.table, 0, table, 0, this.table.length);
+        this.table = table;
+
         for (Player player : this.getPlayers()) {
             this.table[i] = player.throwLastCard();
             PlayingCard newMostSeniorCard = this.findMostSeniorCard(this.table[i], mostSeniorCard);
-            if (newMostSeniorCard != mostSeniorCard) {
-                mostSeniorCard = newMostSeniorCard;
+
+            if (newMostSeniorCard != null && newMostSeniorCard != mostSeniorCard) {
                 this.trickWinner = player;
+                mostSeniorCard = newMostSeniorCard;
             }
+
+            if (newMostSeniorCard == null) {
+                this.trickWinner = null;
+            }
+
             i++;
+        }
+
+        if (this.trickWinner == null) {
+            PlayingCard[] war = new PlayingCard[this.table.length + this.getPlayers().length];
+            System.arraycopy(this.table, 0, war, 0, this.table.length);
+            this.table = war;
+
+            for (Player player : this.getPlayers()) {
+                this.table[i] = player.throwLastCard();
+                i++;
+            }
+            this.playTrick();
+            return;
         }
 
         PlayingCard[] shuffledTable = this.table.clone();
@@ -101,6 +123,31 @@ public class War implements Game {
         for (PlayingCard card : shuffledTable) {
             this.trickWinner.addCardUnderThePile(card);
         }
+
+        this.showTrick();
+
+        this.table = new PlayingCard[0];
+    }
+
+    @Override
+    public int getCardSeniority(PlayingCard card) {
+        return switch(card.getFigure()) {
+            case "2" -> 2;
+            case "3" -> 3;
+            case "4" -> 4;
+            case "5" -> 5;
+            case "6" -> 6;
+            case "7" -> 7;
+            case "8" -> 8;
+            case "9" -> 9;
+            case "10" -> 10;
+            case "Jack" -> 11;
+            case "Queen" -> 12;
+            case "King" -> 13;
+            case "Ace" -> 14;
+            case "Joker" -> 15;
+            default -> throw new IllegalStateException("Unexpected value: " + card.getFigure());
+        };
     }
 
     public void showTable() {
@@ -122,10 +169,10 @@ public class War implements Game {
 
         Game game = new War(
             new Deck[] {
-                new DeckOf55Cards(),
-                new DeckOf55Cards(),
+//                new DeckOf55Cards(),
+//                new DeckOf55Cards(),
 //                new DeckOf24Cards(),
-//                new DeckOf4Cards(),
+                new DeckOf4Cards(),
             },
             new Player[] {
                 player1,
@@ -149,10 +196,18 @@ public class War implements Game {
     }
 
     private PlayingCard findMostSeniorCard(PlayingCard card, PlayingCard mostSeniorCard) {
-        if (mostSeniorCard == null || card.getSeniority() > mostSeniorCard.getSeniority()) {
+        if (mostSeniorCard == null) {
             return card;
         }
-        // TODO draw game trick should play "war"
+
+        if (this.getCardSeniority(card) > this.getCardSeniority(mostSeniorCard)) {
+            return card;
+        }
+
+        if (this.getCardSeniority(card) == this.getCardSeniority(mostSeniorCard)) {
+            return null;
+        }
+
         return mostSeniorCard;
     }
 }

@@ -19,6 +19,8 @@ public interface Game {
 
     void playTrick();
 
+    int getCardSeniority(PlayingCard card);
+
     void showTrick();
 
     void showTable();

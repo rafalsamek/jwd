@@ -31,7 +31,12 @@ public class Joker implements PlayingCard {
     }
 
     @Override
-    public int getSeniority() {
-        return 15;
+    public String getFigure() {
+        return this.figure;
+    }
+
+    @Override
+    public String getSuit() {
+        return this.color.label;
     }
 }

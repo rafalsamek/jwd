@@ -25,8 +25,8 @@ public class CardsApplication {
             new Deck[] {
 //                new DeckOf55Cards(),
 //                new DeckOf55Cards(),
-//                new DeckOf24Cards(),
-                new DeckOf4Cards(),
+                new DeckOf24Cards(),
+//                new DeckOf4Cards(),
             },
             new Player[] {
                 player1,
@@ -44,7 +44,6 @@ public class CardsApplication {
 
         while (!dealer.getGame().isFinished()) {
             dealer.getGame().playTrick();
-            dealer.getGame().showTrick();
             dealer.showPlayersInfo();
 
             System.out.println("Press space bar to continue...");

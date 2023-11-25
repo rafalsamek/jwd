@@ -61,21 +61,13 @@ public class Card implements PlayingCard {
     }
 
     @Override
-    public int getSeniority() {
-        return switch(this.figure) {
-            case TWO -> 2;
-            case THREE -> 3;
-            case FOUR -> 4;
-            case FIVE -> 5;
-            case SIX -> 6;
-            case SEVEN -> 7;
-            case EIGHT -> 8;
-            case NINE -> 9;
-            case TEN -> 10;
-            case JACK -> 11;
-            case QUEEN -> 12;
-            case KING -> 13;
-            case ACE -> 14;
-        };
+    public String getFigure() {
+        return this.figure.label;
     }
+
+    @Override
+    public String getSuit() {
+        return this.suit.label;
+    }
+
 }
