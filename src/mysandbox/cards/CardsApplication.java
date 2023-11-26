@@ -49,7 +49,9 @@ public class CardsApplication {
             System.out.println("Press space bar to continue...");
             keyInput.waitUntilKeyPressed(KeyEvent.VK_SPACE);
         }
+
         dealer.showWinner();
+
         keyInput.getFrame().dispose();
     }
 }
