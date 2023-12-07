@@ -73,6 +73,14 @@ public class Demo {
             System.out.println();
         }
 
-        int[][][] multi = {{{1}},{{1}, {2}}};
+        int[][][] multi = {
+            {
+                {1}
+            },
+            {
+                {1},
+                {2}
+            }
+        };
     }
 }
