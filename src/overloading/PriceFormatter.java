@@ -12,11 +12,14 @@ public class PriceFormatter {
     }
 
     private String formatPrice(String value) {
-        return String.format("%.2f %s", Double.parseDouble(value), currency);
+//        return String.format("%.2f %s", Double.parseDouble(value), currency);
+        return this.formatPrice(Double.parseDouble(value));
     }
 
     public static void main(String[] args) {
         PriceFormatter pf = new PriceFormatter();
+        pf.currency = "PLN";
+
         System.out.println(pf.formatPrice(500));
         System.out.println(pf.formatPrice(89.9934));
         System.out.println(pf.formatPrice("550"));
