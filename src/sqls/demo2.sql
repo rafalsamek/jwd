@@ -147,8 +147,7 @@ CREATE TABLE SqlLearner.Orders (
   OrderDate datetime,
   CustomerID int
 )
- 
- 
+
 -- próba usunięcia utworzonych tabel
  
 DROP TABLE SqlLearner.Customers
@@ -158,8 +157,9 @@ DROP TABLE Orders
  
 -- sukces
 DROP TABLE SqlLearner.Orders
- 
- 
+
+DROP SCHEMA SqlLearner
+GO
  
 -- Identities
 ---------------------------------------
@@ -533,7 +533,7 @@ GO
 -- wstawienie wiersza z niepoprawną datą urodzenia (przyszła data)
 -- sukces
 INSERT INTO Customers (Firstname, Lastname, BirthDate)
-VALUES ('John', 'Smith', '20200105')
+VALUES ('John', 'Smith', '20290105')
  
 SELECT * FROM Customers
  
@@ -553,15 +553,15 @@ ADD CONSTRAINT CK_BirthDate CHECK (BirthDate < GETDATE())
 -- (powtórnie) wstawienie wiersza z niepoprawną datą urodzenia (przyszła data))
 -- niepowodzenie
 INSERT INTO Customers (Firstname, Lastname, BirthDate)
-VALUES ('John', 'Smith', '20200105')
+VALUES ('John', 'Smith', '20290105')
  
 -- sukces
 INSERT INTO Customers (Firstname, Lastname, BirthDate)
 VALUES ('John', 'Smith', '19800105')
  
  
--- jak usunąć ograniczenie z klauzulą CHECK?
- 
+-- jak usunąć ograniczenie z klauzulą CHECK? 
+ ALTER TABLE Customers DROP CONSTRAINT CK_BirthDate
 GO
  
 CREATE TABLE Orders (
