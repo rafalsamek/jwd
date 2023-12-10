@@ -26,7 +26,6 @@ public class AnimalShelter {
 
         //umieszczanie zwierząt losowo w kojcach
         Random random = new Random();
-        int rand;
         for (int i = 0; i < beds.length; i++) {
             beds[i] = switch (random.nextInt(3)) {
                 case 0 -> new Dog();
