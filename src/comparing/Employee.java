@@ -1,5 +1,7 @@
 package comparing;
 
+import java.util.Objects;
+
 public class Employee {
     String name;
     int age;
@@ -23,5 +25,13 @@ public class Employee {
                 ", age=" + age +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return age == employee.age && salary == employee.salary && Objects.equals(name, employee.name);
     }
 }
