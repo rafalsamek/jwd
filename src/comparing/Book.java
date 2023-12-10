@@ -3,10 +3,10 @@ package comparing;
 import java.util.Objects;
 
 public class Book {
-    String title;
-    String author;
-    String publisher;
-    int year;
+    private String title;
+    private String author;
+    private String publisher;
+    private int year;
 
     public Book(String title, String author, String publisher, int year) {
         this.title = title;
