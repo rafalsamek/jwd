@@ -1,4 +1,4 @@
--- ilo�� post�w w w�tkach
+-- ilość postów w wątkach
 CREATE VIEW Forum.vClues
 AS
 SELECT c.ID, c.Name, c.Descript, COUNT(t.ID) AS TopicsCnt
@@ -11,7 +11,7 @@ SELECT * FROM Forum.vClues
 GO
 
 
--- w�tki (bez odpowiedzi) wraz z danymi autor�w
+-- wątki (bez odpowiedzi) wraz z danymi autorów
 CREATE VIEW Forum.vTopics
 AS
 SELECT
@@ -31,7 +31,7 @@ SELECT * FROM Forum.vTopics WHERE ClueID = 1
 GO
 
 
--- przyk�ad podzapytania
+-- przykład podzapytania
 SELECT
 	t.ID,
 	t.TopicSubject,
@@ -41,7 +41,7 @@ FROM Forum.Topics AS t
 GO
 
 
--- w�tki, autorzy, liczba, czas i autor ostatniej odpowiedzi
+-- wątki, autorzy, liczba, czas i autor ostatniej odpowiedzi
 CREATE VIEW Forum.vTopicsExtended
 AS
 SELECT
