@@ -33,6 +33,14 @@ BEGIN
         END
 END
 GO
+
+-- views
+DROP VIEW IF EXISTS Forum.vClues
+DROP VIEW IF EXISTS Forum.vTopics
+DROP VIEW IF EXISTS Forum.vTopicsExtended
+DROP VIEW IF EXISTS Forum.vUsersConfirmedRegistrations
+GO
+
 -- foreign keys
 EXEC DropConstraintIfExists @TableName = 'Topics', @ConstraintName = 'FK_Topics_Topics_ID', @SchemaName = 'Forum'
 EXEC DropConstraintIfExists @TableName = 'Topics', @ConstraintName = 'FK_Topics_Users_ID', @SchemaName = 'Forum'
