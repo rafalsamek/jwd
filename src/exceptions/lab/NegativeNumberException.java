@@ -1,6 +1,6 @@
 package exceptions.lab;
 
-public class NegativeNumberException extends ArithmeticException {
+public class NegativeNumberException extends IllegalArgumentException {
     public NegativeNumberException() {
     }
 
