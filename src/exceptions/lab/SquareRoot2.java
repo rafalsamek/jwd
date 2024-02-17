@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Jeśli użytkownik poda liczbę ujemną rzuć wyjątek java.lang.IllegalArgumentException.
  * Obsłuż sytuację, w której użytkownik poda ciąg znaków, który nie jest liczbą.
  */
-public class SquareRoot {
+public class SquareRoot2 {
     public static void main(String[] args) {
         System.out.print("Podaj liczbę: ");
         Scanner input = new Scanner(System.in);
@@ -18,15 +18,13 @@ public class SquareRoot {
         try {
             number = Double.parseDouble(inputLine);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Podany ciąg znaków nie jest liczbą!");
+            System.out.println("Podany ciąg znaków nie jest liczbą!");
+            System.exit(-1);
         }
 
         if (number < 0) {
             throw new IllegalArgumentException("Podano liczbę ujemną!");
         }
-
-        System.out.println();
-
         System.out.println("Pierwiastek z liczby " + number + " to: " + Math.sqrt(number));
     }
 }
