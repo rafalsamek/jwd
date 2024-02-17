@@ -8,10 +8,12 @@ package tests.test3;
  * elementowej tablicy a następnie iterując po tablicy wyświetlić informacje o przechowywanych użytkownikach.
  */
 public class User {
+    private int id;
     private String name;
     private int age;
 
-    public User(String name, int age) {
+    public User(int id, String name, int age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }
@@ -19,7 +21,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
@@ -27,9 +30,9 @@ public class User {
     public static void main(String[] args) {
         User[] users = new User[10];
 
-        users[0] = new User("Rafał", 41);
-        users[1] = new User("Ewa", 30);
-        users[2] = new User("Łukasz", 32);
+        users[0] = new User(1, "Rafał", 41);
+        users[1] = new User(2, "Ewa", 30);
+        users[2] = new User(3, "Łukasz", 32);
 
         for (User user : users) {
             System.out.println(user);
