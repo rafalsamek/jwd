@@ -18,7 +18,8 @@ public class SquareRoot {
         try {
             number = Double.parseDouble(inputLine);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Podany ciąg znaków nie jest liczbą!");
+            System.out.println("Podany ciąg znaków nie jest liczbą!");
+            System.exit(-1);
         }
 
         if (number < 0) {
