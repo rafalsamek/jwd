@@ -11,6 +11,11 @@ public class PrimeFinder implements Runnable {
     private Thread runner;
 
     PrimeFinder(long inTarget) {
+        if (inTarget < 0) {
+            throw new NegativeNumberException(
+                    "Przekazano ujemną liczbę do konstruktora PrimeFinder! Przekazana liczba to: " + inTarget
+            );
+        }
         target = inTarget;
         if (runner == null) {
             runner = new Thread(this);
@@ -38,5 +43,9 @@ public class PrimeFinder implements Runnable {
                 return false;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        PrimeFinder primeFinder = new PrimeFinder(-3);
     }
 }
