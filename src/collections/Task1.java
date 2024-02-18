@@ -21,13 +21,17 @@ public class Task1 {
 
         Iterator<Integer> iterator = list.iterator();
 
-        while (iterator.hasNext()) {
-            Integer i = iterator.next();
-            if (i % 3 == 0) {
-                iterator.remove();
-            }
-        }
+//        while (iterator.hasNext()) {
+//            Integer i = iterator.next();
+//            if (i % 3 == 0) {
+//                iterator.remove();
+//            }
+//        }
+
+        list.removeIf(number -> number % 3 == 0); //lambda
 
         System.out.println(list);
+
+
     }
 }
