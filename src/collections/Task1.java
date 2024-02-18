@@ -12,9 +12,9 @@ import java.util.Iterator;
  */
 public class Task1 {
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(i + 1);
+        ArrayList<Integer> list = new ArrayList<>(120);
+        for (int i = 1; i <= 100; i++) {
+            list.add(i);
         }
 
         System.out.println(list);
