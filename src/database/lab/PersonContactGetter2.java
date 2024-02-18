@@ -5,11 +5,11 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.*;
 
 /**
- * Napisz program, który korzystając z bazy danych AdventureWorks wyświetli podstawowe dane 10. pierwszych osób 
+ * Napisz program, który korzystając z bazy danych AdventureWorks wyświetli podstawowe dane 10. pierwszych osób
  * (Person.Contact), którzy mają na nazwisko „Anderson”.
  * Dokonaj modyfikacji powyższego programu, aby można było wyszukiwać osoby podając początek nazwiska.
  */
-public class PersonContactGetter {
+public class PersonContactGetter2 {
     private static final String DB_HOST = "morfeusz.wszib.edu.pl";
     private static final int DB_PORT = 1433;
     private static final String DB_USER = "rsamek";
@@ -24,20 +24,25 @@ public class PersonContactGetter {
             System.out.println("Nie podano początku nazwiska");
             System.exit(-1);
         }
-        PersonContactGetter personContactGetter = new PersonContactGetter();
+        PersonContactGetter2 personContactGetter = new PersonContactGetter2();
+        ResultSet rs = null;
         try(Connection con = personContactGetter.connect(DB_USER, DB_PASS, DB_NAME);
-//            Statement stmt = con.createStatement();
-            PreparedStatement ps = con.prepareStatement(SELECT_PERSONS_BY_LASTNAME_SQL);) {
-//                ResultSet rs = stmt.executeQuery(SELECT_10_TOP_PERSONS_SQL);
-                ps.setString(1, args[0] + "%");
-                ResultSet rs = ps.executeQuery();
+//            Statement stmt = con.createStatement()
+            PreparedStatement ps = con.prepareStatement(SELECT_PERSONS_BY_LASTNAME_SQL)) {
+//                rs = stmt.executeQuery(SELECT_10_TOP_PERSONS_SQL);
+            ps.setString(1, args[0] + "%");
+            rs = ps.executeQuery();
 
-                while (rs.next()) {
-                    System.out.println(rs.getString("FirstName") + " " + rs.getString("LastName"));
-                }
+            while (rs.next()) {
+                System.out.println(rs.getString("FirstName") + " " + rs.getString("LastName"));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
         }
     }
 
