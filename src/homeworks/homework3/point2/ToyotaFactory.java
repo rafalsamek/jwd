@@ -5,19 +5,19 @@ import java.util.Random;
 public abstract class ToyotaFactory {
     protected Car[] parking;
 
-    private final static String[] models = {
+    private final static String[] MODELS = {
         "Yaris",
         "Corolla",
         "Aygo",
     };
 
-    public final static String[] colors = {
+    public final static String[] COLORS = {
         "srebrny",
         "niebieski",
         "czarny",
     };
 
-    private final static int[] years = {
+    private final static int[] YEARS = {
         2018,
         2019,
         2020
@@ -27,9 +27,9 @@ public abstract class ToyotaFactory {
         Random random = new Random();
 
         return new Car(
-            models[random.nextInt(models.length)],
-            colors[random.nextInt(colors.length)],
-            years[random.nextInt(years.length)]
+                MODELS[random.nextInt(MODELS.length)],
+                COLORS[random.nextInt(COLORS.length)],
+                YEARS[random.nextInt(YEARS.length)]
         );
     }
 

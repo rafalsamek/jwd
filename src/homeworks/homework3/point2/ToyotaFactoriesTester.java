@@ -64,7 +64,7 @@ public class ToyotaFactoriesTester {
         int mostFrequentColorCounter = 0;
         int colorCounter;
         String mostFrequentColor = null;
-        for (String color : ToyotaFactory.colors) {
+        for (String color : ToyotaFactory.COLORS) {
             colorCounter = countColors(color, toyotaFactory);
             if (colorCounter > mostFrequentColorCounter) {
                 mostFrequentColorCounter = colorCounter;
