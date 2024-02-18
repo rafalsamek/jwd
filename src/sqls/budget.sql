@@ -8,7 +8,7 @@ CREATE TABLE budget.BudgetEntries (
     ID int IDENTITY PRIMARY KEY,
     EntryDate datetime NOT NULL DEFAULT GETDATE(),
     EntryName nvarchar(255) NOT NULL,
-    Amount money NOT NULL,
+    Amount money NOT NULL
 )
 GO
 
