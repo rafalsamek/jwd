@@ -2,10 +2,6 @@ package database.lab;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
-import database.BudgetEntry;
-import database.HomeBudget;
-
-import java.math.BigDecimal;
 import java.sql.*;
 
 /**
