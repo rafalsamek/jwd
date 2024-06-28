@@ -22,7 +22,7 @@ public class ArrayTester {
 
         try {
             // a następnie wyświetla wartość znajdującą się pod tym indeksem.
-            int index = parseInt(in);
+            int index = Integer.parseInt(in);
             String value = stringArray[index];
             System.out.println("Wartość tablicy pod indeksem " + index + " to " + value);
         } catch (ArrayIndexOutOfBoundsException exception) {
