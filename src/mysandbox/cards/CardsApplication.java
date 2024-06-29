@@ -25,7 +25,8 @@ public class CardsApplication {
             new Deck[] {
 //                new DeckOf55Cards(),
 //                new DeckOf55Cards(),
-                new DeckOf24Cards(),
+//                new DeckOf24Cards(),
+                new DeckOf4Cards(),
 //                new DeckOf4Cards(),
             },
             new Player[] {
@@ -35,7 +36,7 @@ public class CardsApplication {
         );
 
         dealer.startGame(game);
-        Dealer.shuffleCards(dealer.getGame().getCards());
+//        Dealer.shuffleCards(dealer.getGame().getCards());
         dealer.dealCards();
         dealer.showPlayersInfo();
 

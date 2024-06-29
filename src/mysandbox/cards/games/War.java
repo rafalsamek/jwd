@@ -46,50 +46,49 @@ public class War implements Game {
     public void dealCards() {
         int i = 0;
         for (PlayingCard card : this.getCards()) {
-            this.getPlayers()[i % this.getPlayers().length].addCardOnThePile(card);
+            this.players[i % this.players.length].addCardOnThePile(card);
             i++;
         }
     }
 
     @Override
     public boolean isFinished() {
-        for (Player player: this.getPlayers()) {
-            if (this.playerHasNoCards(player)) {
-                return true;
-            }
+        if (this.players.length == 0) {
+            throw new IllegalStateException("There should be at least one player!");
         }
-
-        return false;
+        return this.players.length < 2;
     }
 
     @Override
     public Player getWinner() {
-        int mostCards = 0;
-        Player winner = null;
-        for (Player player : this.getPlayers()) {
-            if (player.getCards().length > mostCards) {
-                mostCards = player.getCards().length;
-                winner = player;
-            }
+        if (this.isFinished()) {
+            return this.players[0];
         }
-        winner.setIsWinner(true);
-
-        return winner;
+        return null;
     }
 
     @Override
     public void playTrick() {
+        if (this.players.length < 2) {
+            return;
+        }
         PlayingCard mostSeniorCard = null;
         this.trickWinner = null;
 
         int i = this.table.length;
 
-        PlayingCard[] table = new PlayingCard[this.table.length + this.getPlayers().length];
+        PlayingCard[] table = new PlayingCard[this.table.length + this.players.length];
         System.arraycopy(this.table, 0, table, 0, this.table.length);
         this.table = table;
 
-        for (Player player : this.getPlayers()) {
+        for (Player player : this.players) {
             this.table[i] = player.throwLastCard();
+
+            if (this.table[i] == null) {
+                this.removePlayer(player);
+                continue;
+            }
+
             PlayingCard newMostSeniorCard = this.findMostSeniorCard(this.table[i], mostSeniorCard);
 
             if (newMostSeniorCard != null && newMostSeniorCard != mostSeniorCard) {
@@ -105,11 +104,11 @@ public class War implements Game {
         }
 
         if (this.trickWinner == null) {
-            PlayingCard[] war = new PlayingCard[this.table.length + this.getPlayers().length];
+            PlayingCard[] war = new PlayingCard[this.table.length + this.players.length];
             System.arraycopy(this.table, 0, war, 0, this.table.length);
             this.table = war;
 
-            for (Player player : this.getPlayers()) {
+            for (Player player : this.players) {
                 this.table[i] = player.throwLastCard();
                 i++;
             }
@@ -127,6 +126,17 @@ public class War implements Game {
         this.showTrick();
 
         this.table = new PlayingCard[0];
+    }
+
+    private void removePlayer(Player player) {
+        for (int i = 0; i < this.players.length; i++) {
+            if (player == this.players[i]) {
+                Player[] newArray = new Player[this.players.length - 1];
+                System.arraycopy(this.players, 0, newArray, 0, i);
+                System.arraycopy(this.players, i + 1, newArray, i, newArray.length - i);
+                this.players = newArray;
+            }
+        }
     }
 
     @Override

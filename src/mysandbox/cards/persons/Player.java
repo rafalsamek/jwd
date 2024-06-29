@@ -9,8 +9,6 @@ public class Player {
     private String name;
     private PlayingCard[] cards = new PlayingCard[0];
 
-    private boolean isWinner = false;
-
     public Player(String name) {
         this.setName(name);
     }
@@ -49,24 +47,22 @@ public class Player {
 
     public PlayingCard getLastCard() {
         int lastIndex = this.cards.length - 1;
+        if (lastIndex < 0) {
+            return null;
+        }
         return this.cards[lastIndex];
     }
 
     public PlayingCard throwLastCard() {
         PlayingCard lastCard = this.getLastCard();
-        PlayingCard[] cards = new PlayingCard[this.cards.length - 1];
-        System.arraycopy(this.cards, 0, cards, 0, cards.length);
-        this.cards = cards;
+
+        if (lastCard != null) {
+            PlayingCard[] cards = new PlayingCard[this.cards.length - 1];
+            System.arraycopy(this.cards, 0, cards, 0, cards.length);
+            this.cards = cards;
+        }
 
         return lastCard;
-    }
-
-    public boolean getIsWinner() {
-        return this.isWinner;
-    }
-
-    public void setIsWinner(boolean isWinner) {
-        this.isWinner = isWinner;
     }
 
     public String toString() {
