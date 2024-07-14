@@ -11,9 +11,16 @@ public class MyFirstLambda {
         System.out.println(multiplier.perform(2));
         System.out.println(multiplier.perform(5));
         System.out.println(multiplier.perform(10));
+
+        Introducer introducer = name -> System.out.println("Cześć! Mam na imię " + name + ".");
+        introducer.run("Rafał");
     }
 }
 
 interface Multiplier {
     int perform(int x);
+}
+
+interface Introducer {
+    void run(String name);
 }
