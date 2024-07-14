@@ -1,4 +1,4 @@
-package inner.istandard.ilocal;
+package inner.ilocal;
 
 import java.util.Arrays;
 

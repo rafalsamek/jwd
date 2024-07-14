@@ -1,4 +1,4 @@
-package inner.istandard.istatic;
+package inner.istatic;
 
 public class StaticInnerDemo {
     public static void main(String[] args) {
