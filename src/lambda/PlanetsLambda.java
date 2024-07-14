@@ -16,9 +16,7 @@ public class PlanetsLambda {
                 "Neptun"
         };
 
-        Comparator<String> comparator = (o1, o2) -> o1.length() - o2.length();
-
-        Arrays.sort(planets, comparator);
+        Arrays.sort(planets, (o1, o2) -> o1.length() - o2.length());
 
         System.out.println(Arrays.toString(planets));
     }
