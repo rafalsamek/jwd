@@ -16,7 +16,7 @@ public class PlanetsLambda {
                 "Neptun"
         };
 
-        Arrays.sort(planets, (o1, o2) -> o1.length() - o2.length());
-        Arrays.asList(planets).forEach(s -> System.out.print(s));
+        Arrays.sort(planets, Comparator.comparingInt(String::length));
+        Arrays.asList(planets).forEach(System.out::print);
     }
 }
