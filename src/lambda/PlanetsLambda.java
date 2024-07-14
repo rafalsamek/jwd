@@ -17,6 +17,6 @@ public class PlanetsLambda {
         };
 
         Arrays.sort(planets, (o1, o2) -> o1.length() - o2.length());
-        Arrays.asList(planets).forEach(s -> System.out.println(s));
+        Arrays.asList(planets).forEach(s -> System.out.print(s));
     }
 }
