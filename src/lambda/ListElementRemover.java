@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ListElementRemover {
     public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class ListElementRemover {
 
         System.out.println(list);
 
-        list.removeIf(e -> e == null);
+        list.removeIf(Objects::isNull);
 
         System.out.println(list);
     }
