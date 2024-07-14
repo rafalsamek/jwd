@@ -8,7 +8,7 @@ public class MethodReferenceOperatorDemo {
         Function<String, Integer> function = Integer::parseInt;
         int number = function.apply("123");
 
-        Consumer<String> printer = s -> System.out.println(s);
+        Consumer<String> printer = System.out::println; // method reference operator
         printer.accept("Hello!");
     }
 }
